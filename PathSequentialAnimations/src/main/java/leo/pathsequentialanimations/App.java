@@ -1,6 +1,9 @@
 package leo.pathsequentialanimations;
 
+import javafx.animation.ParallelTransition;
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
+import javafx.application.Platform;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,6 +18,7 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Polygon;
+import javafx.util.Duration;
 
 
 /**
@@ -27,6 +31,14 @@ public class App extends Application {
     private static final double NX = 580, NY = 60;    // N (top-right)
     private static final double PX = 580, PY = 310;   // P (bottom-right)
     private static final double QX = 80,  QY = 310;   // Q (bottom-left)
+    private static final Duration TOP_BOTTOM = Duration.seconds(8.0 / 3);
+    private static final Duration SIDES = Duration.seconds(4.0 / 3);
+
+    private Circle circle;
+    private Polygon triangle;
+    private ParallelTransition animation;
+    private PauseTransition endDelay;
+    private Button startButton;
     
     @Override
     public void start(Stage stage) {
@@ -42,14 +54,14 @@ public class App extends Application {
                 new LineTo(QX, QY),
                 new ClosePath());
         
-        Circle circle  = new Circle(0, 0, 14, Color.CRIMSON);
+        circle = new Circle(0, 0, 14, Color.CRIMSON);
         circle.setStroke(Color.BLACK);
         circle.setTranslateX(MX);
         circle.setTranslateY(MY);
         
-        Polygon polygon = new Polygon(330, 150, 375, 220, 285, 220);
-        polygon.setFill(Color.CORNFLOWERBLUE);
-        polygon.setStroke(Color.BLACK);
+        triangle = new Polygon(330, 150, 375, 220, 285, 220);
+        triangle.setFill(Color.CORNFLOWERBLUE);
+        triangle.setStroke(Color.BLACK);
  
         animationPane.getChildren().addAll(path, polygon, circle);
         
@@ -57,6 +69,8 @@ public class App extends Application {
         Button startBtn = new Button("Start");
         Button resetBtn = new Button("Reset");
         Button exitBtn = new Button("Exit");
+ 
+        
     }
 
     public static void main(String[] args) {
