@@ -31,7 +31,13 @@ public class App extends Application {
         animationPane.setPrefSize(660, 380);
         animationPane.setStyle("-fx-background-color: white;");
         
-
+                // Rectangular path
+        Path path = new Path(
+                new MoveTo(MX, MY),
+                new LineTo(NX, NY),
+                new LineTo(PX, PY),
+                new LineTo(QX, QY),
+                new ClosePath());
     }
 
     public static void main(String[] args) {
