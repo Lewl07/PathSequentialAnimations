@@ -121,8 +121,8 @@ public class App extends Application {
     private void reset() {
         animation.stop();
         if (endDelay != null) endDelay.stop();
-        circle.setTranslateX(0);
-        circle.setTranslateY(0);
+        circle.setTranslateX(MX);
+        circle.setTranslateY(MY);
         triangle.setOpacity(1);
         triangle.setScaleX(1);
         triangle.setScaleY(1);
