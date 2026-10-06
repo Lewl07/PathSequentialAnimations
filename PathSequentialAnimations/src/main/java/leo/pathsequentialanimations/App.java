@@ -7,6 +7,7 @@ import javafx.animation.PathTransition;
 import javafx.animation.PauseTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -87,6 +88,14 @@ public class App extends Application {
 
         TranslateTransition moveUp = new TranslateTransition(SIDES, triangle);
         moveUp.setByY(-70);
+        
+        SequentialTransition sequence = new SequentialTransition(fade, scale, rotate, moveUp);
+        animation = new ParallelTransition(aroundPath, sequence);
+        animation.setOnFinished(event -> {
+            endDelay = new PauseTransition(Duration.seconds(2));
+            endDelay.setOnFinished(done -> Platform.exit());
+            endDelay.play();
+        });
     }
 
     public static void main(String[] args) {
