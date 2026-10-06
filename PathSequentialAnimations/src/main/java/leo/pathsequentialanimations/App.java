@@ -1,9 +1,13 @@
 package leo.pathsequentialanimations;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
 import javafx.animation.PathTransition;
 import javafx.animation.PauseTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 
@@ -67,11 +71,22 @@ public class App extends Application {
  
         animationPane.getChildren().addAll(path, triangle, circle);
         
-        // buttom part (buttons)
         PathTransition aroundPath = new PathTransition(Duration.seconds(8), path, circle);
         aroundPath.setInterpolator(Interpolator.LINEAR);
  
-        
+        FadeTransition fade = new FadeTransition(TOP_BOTTOM, triangle);
+        fade.setFromValue(1);
+        fade.setToValue(0.25);
+
+        ScaleTransition scale = new ScaleTransition(SIDES, triangle);
+        scale.setToX(1.6);
+        scale.setToY(1.6);
+
+        RotateTransition rotate = new RotateTransition(TOP_BOTTOM, triangle);
+        rotate.setByAngle(360);
+
+        TranslateTransition moveUp = new TranslateTransition(SIDES, triangle);
+        moveUp.setByY(-70);
     }
 
     public static void main(String[] args) {
