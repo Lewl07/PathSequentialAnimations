@@ -63,7 +63,7 @@ public class App extends Application {
         triangle.setFill(Color.CORNFLOWERBLUE);
         triangle.setStroke(Color.BLACK);
  
-        animationPane.getChildren().addAll(path, polygon, circle);
+        animationPane.getChildren().addAll(path, triangle, circle);
         
         // buttom part (buttons)
         Button startBtn = new Button("Start");
