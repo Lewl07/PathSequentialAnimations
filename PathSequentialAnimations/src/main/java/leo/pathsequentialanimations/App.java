@@ -8,10 +8,12 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.ClosePath;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.scene.shape.Polygon;
 
 
 /**
@@ -38,6 +40,17 @@ public class App extends Application {
                 new LineTo(PX, PY),
                 new LineTo(QX, QY),
                 new ClosePath());
+        
+        Circle circle  = new Circle(0, 0, 14, Color.CRIMSON);
+        circle.setStroke(Color.BLACK);
+        circle.setTranslateX(MX);
+        circle.setTranslateY(MY);
+        
+        Polygon polygon = new Polygon(330, 150, 375, 220, 285, 220);
+        polygon.setFill(Color.CORNFLOWERBLUE);
+        polygon.setStroke(Color.BLACK);
+ 
+        animationPane.getChildren().addAll(path, polygon, circle);
     }
 
     public static void main(String[] args) {
