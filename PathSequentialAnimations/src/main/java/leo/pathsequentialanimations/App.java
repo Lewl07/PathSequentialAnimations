@@ -1,6 +1,8 @@
 package leo.pathsequentialanimations;
 
+import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
+import javafx.animation.PathTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -66,9 +68,8 @@ public class App extends Application {
         animationPane.getChildren().addAll(path, triangle, circle);
         
         // buttom part (buttons)
-        Button startBtn = new Button("Start");
-        Button resetBtn = new Button("Reset");
-        Button exitBtn = new Button("Exit");
+        PathTransition aroundPath = new PathTransition(Duration.seconds(8), path, circle);
+        aroundPath.setInterpolator(Interpolator.LINEAR);
  
         
     }
