@@ -3,6 +3,7 @@ package leo.pathsequentialanimations;
 import javafx.application.Application;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -51,6 +52,11 @@ public class App extends Application {
         polygon.setStroke(Color.BLACK);
  
         animationPane.getChildren().addAll(path, polygon, circle);
+        
+        // buttom part (buttons)
+        Button startBtn = new Button("Start");
+        Button resetBtn = new Button("Reset");
+        Button exitBtn = new Button("Exit");
     }
 
     public static void main(String[] args) {
