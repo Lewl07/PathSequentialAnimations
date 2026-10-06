@@ -55,8 +55,8 @@ public class App extends Application {
         Pane animationPane = new Pane();
         animationPane.setPrefSize(660, 380);
         animationPane.setStyle("-fx-background-color: white;");
-        
-                // Rectangular path
+
+        // Rectangular path
         Path path = new Path(
                 new MoveTo(MX, MY),
                 new LineTo(NX, NY),
@@ -100,13 +100,14 @@ public class App extends Application {
             endDelay.play();
         });
         
-         startButton = new Button("Start");
+        startButton = new Button("Start");
         Button resetButton = new Button("Reset");
         Button exitButton = new Button("Exit");
         startButton.setOnAction(event -> {
             startButton.setDisable(true);
             animation.playFromStart();
         });
+        
         resetButton.setOnAction(event -> reset());
         exitButton.setOnAction(event -> Platform.exit());
         
