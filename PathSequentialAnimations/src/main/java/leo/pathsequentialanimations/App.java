@@ -30,6 +30,9 @@ import javafx.util.Duration;
 
 /**
  * JavaFX App
+ * 
+ * @author Léo Ho
+ * Git repo: https://github.com/Lewl07/PathSequentialAnimations.git
  */
 public class App extends Application {
 
