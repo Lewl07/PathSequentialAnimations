@@ -96,6 +96,30 @@ public class App extends Application {
             endDelay.setOnFinished(done -> Platform.exit());
             endDelay.play();
         });
+        
+         startButton = new Button("Start");
+        Button resetButton = new Button("Reset");
+        Button exitButton = new Button("Exit");
+        startButton.setOnAction(event -> {
+            startButton.setDisable(true);
+            animation.playFromStart();
+        });
+        resetButton.setOnAction(event -> reset());
+        exitButton.setOnAction(event -> Platform.exit());
+    }
+    
+    private void reset() {
+        animation.stop();
+        if (endDelay != null) endDelay.stop();
+        circle.setTranslateX(0);
+        circle.setTranslateY(0);
+        triangle.setOpacity(1);
+        triangle.setScaleX(1);
+        triangle.setScaleY(1);
+        triangle.setRotate(0);
+        triangle.setTranslateX(0);
+        triangle.setTranslateY(0);
+        startButton.setDisable(false);
     }
 
     public static void main(String[] args) {
